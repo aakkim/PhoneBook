@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * Created by leon on 1/23/18.
@@ -20,7 +21,7 @@ public class PhoneBook {
     }
 
     public PhoneBook() {
-        this.phonebook = new HashMap<>();
+        this.phonebook = new LinkedHashMap<>();
     }
 
     public void add(String name, String phoneNumber) {
@@ -75,7 +76,10 @@ public class PhoneBook {
     }
 
     public List<String> getAllContactNames() {
-        return null;
+        LinkedHashMap<String, List<String>> map = new LinkedHashMap<>(phonebook);
+        Set<String> names = map.keySet();
+        List<String> getAll = new ArrayList<>(names);
+        return getAll;
     }
 
     public Map<String, List<String>> getMap() {
